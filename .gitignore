@@ -1,0 +1,14 @@
+*.7z
+*.zip
+*.rar
+*.iso
+*.gz
+*.tar
+*.jar
+
+*.log
+*.sql
+*.sqlite
+
+node_modules
+bower_components

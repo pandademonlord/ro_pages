@@ -1,0 +1,21 @@
+{
+  "name": "RoDoe",
+  "description": "My First RO server site",
+  "main": "index.js",
+  "authors": [
+    "Michael Knoche"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.5",
+    "bootstrap": "^3.3.6"
+  }
+}

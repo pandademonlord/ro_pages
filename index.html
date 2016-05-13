@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="MIP">
+	<head>
+		<script src='bower_components/angular/angular.js'></script>
+		<script src='scripts/plz.js'></script>
+		<link href='bower_components/bootstrap/dist/css/bootstrap.css' rel='stylesheet' />
+		<link href='bower_components/bootstrap/dist/css/bootstrap-theme.css' rel='stylesheet' />
+	</head>
+	<body ng-controller="myController">
+		<form name='create_usr' novalidate>
+			<div class='form-group'>
+				<label>Account Name:</label>
+				<input name='acc_name' class='form-control' ng-model='data.acc_name' required />
+				{{ data.acc_name}}
+			</div>
+			<div class='form-group'>
+				<label>Username:</label>
+				<input name='username' class='form-control' ng-model='data.username' required />
+			</div>
+			
+			<div class='form-group'>
+				<label>password:</label>
+				<input type='password' size='25' name='password' 
+					class='form-control' ng-model='data.password' required />
+			</div>
+			<div class='form-group'>
+				<label>email:</label>
+				<input name='email' class='form-control' ng-model='data.email' required />
+			</div>
+			<div class='sex'>
+				<label>Sex:</label>
+				<input name='sex' type='radio' ng-model='data.sex' value='M' required/>Male
+				<input name='sex' type='radio' ng-model='data.sex' value='F' required/>Female
+				<br/>
+			</div>
+			<div class='bday'>
+				<label>birthdate</label>
+				<input type='date' name='bday' ng-model='data.bday' required />
+			</div>
+			
+			<div class="text-center">
+            <button ng-disabled="create_usr.$invalid"
+                    ng-click="register(data)"
+                    class="btn btn-primary">Register</button>
+			</div>
+		</form>
+	</body>
+</html>
