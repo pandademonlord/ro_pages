@@ -1,0 +1,39 @@
+<div class='container'>
+	<form name='create_usr' ng-submit='register(data)' novalidate>
+		<div class='form-group'>
+			<label>Account Name:</label>
+			<input name='acc_name' class='form-control' ng-model='data.acc_name' required />
+		</div>
+		<div class='form-group'>
+			<label>Username:</label>
+			<input name='username' class='form-control' ng-model='data.username' required />
+		</div>
+		
+		<div class='form-group'>
+			<label>password:</label>
+			<input type='password' size='25' name='password' 
+				class='form-control' ng-model='data.password' required />
+		</div>
+		<div class='form-group'>
+			<label>email:</label>
+			<input name='email' class='form-control' ng-model='data.email' required />
+		</div>
+		<div class='sex'>
+			<label>Sex:</label>
+			<input name='sex' type='radio' ng-model='data.sex' value='M' required/>Male
+			<input name='sex' type='radio' ng-model='data.sex' value='F' required/>Female
+			<br/>
+		</div>
+		<div class='bday'>
+			<label>birthdate (optional)</label>
+			<input type='date' name='bday' ng-model='data.bday'/>
+		</div>
+		
+		<div class="text-center">
+			<input type="submit" ng-disabled="create_usr.$invalid" class="btn btn-primary" />
+		</div>
+		<div ng-class='checkvalid()'></div>
+	</form>
+	<!--needs to be removed eventually the script can probably be used though-->
+	<button ng-click='deleteuser()' class='btn btn-primary'>delete user</button>
+</div>

@@ -3,7 +3,6 @@
 	DEFINE ("DB_PASSWORD", "pokemanz2552");
 	DEFINE ("DB_HOST", "localhost");
 	DEFINE ("DB_NAME", "vengeful_spirit");	
-	
 	//retrieve post data
 	$postdata = file_get_contents("php://input");
 	$req = json_decode($postdata);
@@ -11,9 +10,18 @@
 	//connect to the database
 	$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	
+	$valid = ("SELECT userid FROM login WHERE userid = '$req->userid'");
+	
 	if($conn->connect_error){
 		die('Connection failed: '.$conn->connect_error);
 	}
+	
+	//validate data
+	if($conn->query($valid) === TRUE){
+		echo "BRO that user is already a thing, not cool";
+		$conn->close();
+	}
+	
 	
 	$reg = ("INSERT INTO login (account_id, userid, user_pass, sex, email, 
 		group_id, state, unban_time, expiration_time, logincount, lastlogin, last_ip, birthdate, character_slots, pincode, pincode_change, vip_time, old_group)
