@@ -1,0 +1,18 @@
+<div class='container'>
+	<form name='login_usr' ng-submit='login(data)' novalidate>
+	<div class='form-group'>
+		<label>username:</label>
+		<input name='username' class='form-control' ng-model='data.username' required />
+	</div>
+	
+	<div class='form-group'>
+		<label>password:</label>
+		<input name='password' class='form-control' ng-model='data.password' required />
+	</div>
+	
+	<div class='text-center'>
+		<input type='submit' ng-disabled='login_usr.$invalid' class='btn btn-primary' />
+		<a class='btn btn-default' href='/#/register'>Register</a>
+	</div>
+	</form>
+</div>

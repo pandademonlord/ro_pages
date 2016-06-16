@@ -1,4 +1,4 @@
-var myApp=angular.module("MIP");//needs to be the php file
+var myApp=angular.module("MIP");
 	
 	myApp.controller("myController",function($scope, $http){
 		var data = {};
@@ -7,6 +7,7 @@ var myApp=angular.module("MIP");//needs to be the php file
 		
 		$scope.data = data;
 		
+		//registers new user
 		$scope.register = function(reg_data){
 			
 			$http.post("register.php", reg_data)
@@ -24,17 +25,31 @@ var myApp=angular.module("MIP");//needs to be the php file
 				$scope.data.valid = false;
 			});
 		}
+		//should indicate if all data is valid and user was successfully created
+		//currently only shows a box that turns green if it works
 		$scope.checkvalid = function(){
 			return $scope.data.valid ? "alert alert-success" : "alert alert-danger";
 		}
 		
+		//deletes last user inside the database, will further expand on this later to make do several things
 		$scope.deleteuser = function(){
 			$http.post("scripts/deleteuser.php")
 			.then(function(res){
 				console.log('got it!!!');
+				console.log(res);
 			},
 			function(res){
 				console.log('php plz');
+			});
+		}
+		
+		$scope.login = function(data){
+			$http.get("scripts/loginuser.php", data)
+			.then(function(res){
+				console.log(res);
+			},
+			function(res){
+				console.log(res);
 			});
 		}
 	});

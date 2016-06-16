@@ -4,6 +4,6 @@ angular.module("MIP", ["ngRoute"])
 			templateUrl: "views/regform.html"
 		});
 		$routeProvider.otherwise({
-			templateUrl: "views/regform.html"
+			templateUrl: "views/loginform.html"
 		});
 	});
